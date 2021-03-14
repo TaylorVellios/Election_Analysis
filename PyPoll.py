@@ -44,13 +44,30 @@ vote_data.close()
 # ---------DICTIONARY COMPREHENSION TO CONVERT OUR VOTECOUNT DICTIONARY PER CANDIDATE INTO A PERCENTAGE OF TOTAL VOTE PER CANDIDATE
 voting_percents = {k:((v / total_votes) * 100) for k,v in candidate_votes.items()}
 
+winner_vote_count = 0
+winner_vote_percent = 0.0
+winner_name = ""
 
-# ---------LOOP TO DISPLAY EACH CANDIDATES % OF VOTE AND TOTAL COUNT
-print("------------------------------------------------------------------------------")
-for k,v in voting_percents.items():
-    print(f"{k}: received {round(v,2)}% of the vote with {candidate_votes[k]} votes.")
+# ---------LOOP TO DISPLAY EACH CANDIDATES % OF VOTE AND TOTAL COUNT - DETERMINE WINNER AND STORE IN VARIABLES
+print("-----------------------------------------------")
+for cand, vote_p in voting_percents.items():
+    print(f"{cand}: {round(vote_p,1)}%  ({candidate_votes[cand]:,})")
+    if (candidate_votes[cand] > winner_vote_count) and (vote_p > winner_vote_percent):
+        winner_vote_count = candidate_votes[cand]
+        winner_vote_percent = vote_p
+        winner_name = cand
+print("------------------------------------------------\n")
 
-print("------------------------------------------------------------------------------\n")
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winner_name}\n"
+    f"Winning Vote Count: {winner_vote_count:,}\n"
+    f"Winning Percentage: {winner_vote_percent:.1f}%\n"
+    f"-------------------------\n")
+print(winning_candidate_summary)
+
+
+
 
 
 with open(file_to_write, 'w') as OutputFile:
