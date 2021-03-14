@@ -62,7 +62,7 @@ with open(file_to_write, 'w') as OutputFile:
     OutputFile.write(election_results)
 
 
-# -----------DICTIONARY COMPREHENSIONS TO CONVERT OUR DICTIONARIES WITH KEYS:COUNTS TO KEYS:%
+# -----------DICTIONARY COMPREHENSIONS TO CONVERT OUR DICTIONARIES WITH {KEYS:COUNTS} TO {KEYS:%}
     voting_percents = {k:((v / total_votes) * 100) for k,v in candidate_votes.items()}
     counties_percents = {k:((v / total_votes)* 100) for k,v in county_votes.items()}
 
@@ -76,7 +76,7 @@ with open(file_to_write, 'w') as OutputFile:
     county_vote_percent = 0
     largest_county = ''
 
-# -----------LOOP TO DISPLAY AND WRITE COUNTY RESULTS
+# -----------LOOP TO DISPLAY AND ASSIGN VALUES TO CONDITIONAL VARIABLES FOR COUNTY INFO - WRITE TO FILE/PRINT TO CONSOLE
     space = len(max(counties)) + 2
 
     for c , v in counties_percents.items():
@@ -93,7 +93,7 @@ with open(file_to_write, 'w') as OutputFile:
     print('-------------------------')
     OutputFile.write('-------------------------\n')
 
-# -----------LOOP TO DISPLAY AND WRITE BALLOT RESULTS
+# -----------LOOP TO DISPLAY AND ASSIGN VALUES TO CONDITIONAL VARIABLES FOR BALLOT INFO - WRITE TO FILE/PRINT TO CONSOLE
     space = len(max(Candidates)) + 7
 
     for cand, vote_p in voting_percents.items():
