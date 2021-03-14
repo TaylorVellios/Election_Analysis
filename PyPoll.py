@@ -33,44 +33,52 @@ with open(file_to_load,'r') as vote_data:
         
         candidate_votes[candidate_name] += 1
 
-
-    print()        
-    print(f"The Candidates Are: {', '.join(Candidates)}\n")
-    print(f"Total Number of Votes: {total_votes}")
-    print()
-
-vote_data.close()
-
-# ---------DICTIONARY COMPREHENSION TO CONVERT OUR VOTECOUNT DICTIONARY PER CANDIDATE INTO A PERCENTAGE OF TOTAL VOTE PER CANDIDATE
-voting_percents = {k:((v / total_votes) * 100) for k,v in candidate_votes.items()}
-
-winner_vote_count = 0
-winner_vote_percent = 0.0
-winner_name = ""
-
-# ---------LOOP TO DISPLAY EACH CANDIDATES % OF VOTE AND TOTAL COUNT - DETERMINE WINNER AND STORE IN VARIABLES
-print("-----------------------------------------------")
-for cand, vote_p in voting_percents.items():
-    print(f"{cand}: {round(vote_p,1)}%  ({candidate_votes[cand]:,})")
-    if (candidate_votes[cand] > winner_vote_count) and (vote_p > winner_vote_percent):
-        winner_vote_count = candidate_votes[cand]
-        winner_vote_percent = vote_p
-        winner_name = cand
-print("------------------------------------------------\n")
-
-winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winner_name}\n"
-    f"Winning Vote Count: {winner_vote_count:,}\n"
-    f"Winning Percentage: {winner_vote_percent:.1f}%\n"
-    f"-------------------------\n")
-print(winning_candidate_summary)
-
-
-
-
-
+# -----------WRITING RESULTS TO TXT FILE       
 with open(file_to_write, 'w') as OutputFile:
 
-    OutputFile.write("")
-OutputFile.close()
+# Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    
+
+    print(election_results, end="")
+    print()
+    # Save the final vote count to the text file.
+    OutputFile.write(election_results)
+
+
+# ---------DICTIONARY COMPREHENSION TO CONVERT OUR VOTECOUNT DICTIONARY PER CANDIDATE INTO A PERCENTAGE OF TOTAL VOTE PER CANDIDATE
+    voting_percents = {k:((v / total_votes) * 100) for k,v in candidate_votes.items()}
+
+    winner_vote_count = 0
+    winner_vote_percent = 0.0
+    winner_name = ""
+
+    # ---------LOOP TO DISPLAY EACH CANDIDATES % OF VOTE AND TOTAL COUNT - DETERMINE WINNER AND STORE IN VARIABLES
+    for cand, vote_p in voting_percents.items():
+
+        #----------------CREATE FORMATTED VARIABLE, PRINT TO TERMINAL, WRITE TO OUTPUTFILE
+        candidate_results = (f"{cand}: {round(vote_p,1)}%  ({candidate_votes[cand]:,})\n")
+        print(candidate_results)
+        OutputFile.write(candidate_results)
+
+
+        if (candidate_votes[cand] > winner_vote_count) and (vote_p > winner_vote_percent):
+            winner_vote_count = candidate_votes[cand]
+            winner_vote_percent = vote_p
+            winner_name = cand
+
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winner_name}\n"
+        f"Winning Vote Count: {winner_vote_count:,}\n"
+        f"Winning Percentage: {winner_vote_percent:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_candidate_summary)
+
+
+
+    OutputFile.write(winning_candidate_summary)
