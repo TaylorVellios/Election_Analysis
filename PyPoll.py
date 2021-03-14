@@ -77,24 +77,31 @@ with open(file_to_write, 'w') as OutputFile:
     largest_county = ''
 
 # -----------LOOP TO DISPLAY AND ASSIGN VALUES TO CONDITIONAL VARIABLES FOR COUNTY INFO - WRITE TO FILE/PRINT TO CONSOLE
-    space = len(max(counties)) + 2
+    space = len(max(counties)) + 1
 
     for c , v in counties_percents.items():
         inside_space = ' ' * (space - len(c))
-        county_results = (f'Votes in {c} County:{inside_space}{round(v,1)}% -- ({county_votes[c]:,})\n')
+        county_results = (f'{c}:{inside_space}{round(v,1)}% -- ({county_votes[c]:,})\n')
         print(county_results)
         OutputFile.write(county_results)
 
         if (county_votes[c] > county_vote_count) and (v > county_vote_percent):
             county_vote_count = county_votes[c]
             county_vote_percent = v
+            largest_county = c
 
+# -----------INITIALIZING A STRING TO PRINT SPECIFIC COUNTY DATA
+    biggest_turnout = (
+        f"-------------------------\n"
+        f"Largest Conty Turnout: {largest_county}\n"
+        f"-------------------------\n"
+        )
 
-    print('-------------------------')
-    OutputFile.write('-------------------------\n')
+    print(biggest_turnout)
+    OutputFile.write(biggest_turnout)
 
 # -----------LOOP TO DISPLAY AND ASSIGN VALUES TO CONDITIONAL VARIABLES FOR BALLOT INFO - WRITE TO FILE/PRINT TO CONSOLE
-    space = len(max(Candidates)) + 7
+    space = len(max(Candidates)) + 5
 
     for cand, vote_p in voting_percents.items():
         inside_space = ' ' * (space - len(cand))
