@@ -7,7 +7,7 @@ import csv
 file_to_load = os.path.join('Resources','election_results.csv')
 
 # ---------CREATE VARIABLE FOR OUTPUT FILE
-file_to_write = os.path.join('analysis', 'election_analysis.txt')
+file_to_write = os.path.join('analysis', 'election_results.txt')
 
 print()
 
