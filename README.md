@@ -6,12 +6,11 @@ The data used in this demonstration can be found in Resources/election_results.c
 
 
 # Election-Audit Results
-</br>
 ![election0](https://user-images.githubusercontent.com/14188580/111090008-15f5fe00-84fc-11eb-990e-e769f57c65fa.PNG)
 
 </br>
 - As can be seen above, there is a grand total of 369,711 votes that were counted by this script. This number can be confirmed in the .CSV file that has an extra header row.
-</br>
+- 
 ![election1](https://user-images.githubusercontent.com/14188580/111090014-1abab200-84fc-11eb-8a24-5927e3e1ede5.PNG)
 </br>
 - Out of every row of data within this .csv file, this python program will create dictionary keys of unique candidates and the counties where votes were cast, while counting the number of votes they received.</br>
