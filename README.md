@@ -1,11 +1,11 @@
-## Ballot Counting in Python
-# Overview
+# Ballot Counting in Python
+## Overview
 Analyzing election ballot data using the core mechanics of Python's CSV Library.<br>
 The data used in this demonstration can be found in Resources/election_results.csv<br>
   - This file is based on the ballot data from Colorado's Congressional Race for District 1 in 2018
 
 
-# Election-Audit Results
+## Election-Audit Results
 ![election1](https://user-images.githubusercontent.com/14188580/111091610-7fc4d680-8501-11eb-848d-b7f02a62f9d9.PNG)
 
 
@@ -19,5 +19,5 @@ The data used in this demonstration can be found in Resources/election_results.c
 
 ![election0](https://user-images.githubusercontent.com/14188580/111091616-83585d80-8501-11eb-9660-d6d969ad7832.PNG)
 
-# Election-Audit Summary
+## Election-Audit Summary
 What makes this python script so versatile is its data collection system - by using lists and dictionaries we can theoretically output up to as many Candidates and Counties as these python objects allow: all without having to declare any of them manually! Another main advantage is processing speed. Opening and manipulating the .csv file in Excel can be a burden on many machines when there are nearly 370,000 rows of data to process. With only minor modifications, (changing iteration index numbers in the csv.reader() object), this script can be used reliably with any .csv containing voter data.
