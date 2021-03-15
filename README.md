@@ -8,7 +8,7 @@ The data used in this demonstration can be found in Resources/election_results.c
 # Election-Audit Results
 ![election1](https://user-images.githubusercontent.com/14188580/111091610-7fc4d680-8501-11eb-848d-b7f02a62f9d9.PNG)
 
-<br>
+
 - From the data processed, there is a grand total of 369,711 votes that were counted. This number can be confirmed in the .CSV file that has an extra header row.
 - 
 - While processing the data within this .csv file, this python program creates dictionary keys of unique candidates and values of the votes they received; as well as the counties from where the votes originated with how many votes came from those counties. From the file used in this analysis: Denver County consisted of 82.8% of tallied votes with 306,055, Jefferson County consisted of 10.5% of votes with 38,855, and Arapahoe County made up the final 6.7% with 24,801 votes.
