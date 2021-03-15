@@ -30,12 +30,12 @@ with open(file_to_load,'r') as vote_data:
         candidate_name = i[2]
         total_votes += 1
 
-        # -----------PULL UNIQUE CANDIDATE NAMES, INITIALIZE DICTIONARY COUNTS FOR EACH CANDIDATE    
+# -----------PULL UNIQUE CANDIDATE NAMES, INITIALIZE DICTIONARY COUNTS FOR EACH CANDIDATE    
         if candidate_name not in Candidates:
             Candidates.append(candidate_name)
             candidate_votes[candidate_name] = 0
         
-        # -----------PULL UNIQUE COUNTY NAMES, INITIALIZE DICTIONARY COUNTS FOR EACH COUNTY 
+# -----------PULL UNIQUE COUNTY NAMES, INITIALIZE DICTIONARY COUNTS FOR EACH COUNTY 
         if county_name not in counties:
             counties.append(county_name)
             county_votes[county_name] = 0
@@ -93,7 +93,7 @@ with open(file_to_write, 'w') as OutputFile:
 # -----------INITIALIZING A STRING TO PRINT SPECIFIC COUNTY DATA
     biggest_turnout = (
         f"-------------------------\n"
-        f"Largest Conty Turnout: {largest_county}\n"
+        f"Largest County Turnout: {largest_county}\n"
         f"-------------------------\n"
         )
 
