@@ -52,7 +52,8 @@ with open(file_to_write, 'w') as OutputFile:
         f"\nElection Results\n"
         f"-------------------------\n"
         f"Total Votes: {total_votes:,}\n"
-        f"-------------------------\n")
+        f"-------------------------\n\n"
+        "County Votes:\n")
     
 
     print(election_results, end="")
